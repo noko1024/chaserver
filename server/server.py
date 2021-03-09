@@ -42,7 +42,7 @@ class Player:
 		
 		# CHaserConnect.rb 対応
 		if self.port == 40000 or self.port == 50000:
-			name = unicode(name, 'cp932')
+			#name = unicode(name, 'cp932')
 			name = name.encode('utf-8')
 		
 		if name == "":
@@ -158,11 +158,11 @@ class Server:
 		
 		# Logging
 		if path == 'serverHello' or path == 'serverDisconnect':
-			print "%s:%s" % (path, query['id'])
+			print ("%s:%s" % (path, query['id']))
 		elif path == 'clientHello' and 'name' in query:
-			print "%s:%s:%s" % (path, query['side'], query['name'])
+			print ("%s:%s:%s" % (path, query['side'], query['name']))
 		elif path == 'clientRequest':
-			print "%s:%s:%s:%s" % (path, query['side'], query['cmd'], ret['result'])
+			print ("%s:%s:%s:%s" % (path, query['side'], query['cmd'], ret['result']))
 		
 		return ret
 		

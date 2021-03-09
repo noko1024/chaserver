@@ -19,7 +19,9 @@ var board = require('./board');
 var player = require('./player');
 var map = require('./map');
 var server = http.createServer(handler);
-var io = require('socket.io').listen(server, {'log level':LOG_LEVEL});
+//var io = require('socket.io').listen(server, {'log level':LOG_LEVEL});
+var io = require('socket.io')(server,{'log level':LOG_LEVEL})
+
 server.listen(WEB_PORT);
 
 var SERVERS = {};
